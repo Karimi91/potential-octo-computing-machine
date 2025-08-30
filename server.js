@@ -694,13 +694,6 @@ app.post('/api/diagnose-image', upload.single('image'), async (req, res) => {
   }
 });
 
-// ---------------------------
-// Start server
-// ---------------------------
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
-
 app.post('/api/Evaluation', async (req, res) => {
   if (!ensureDBReady(res)) return;
   try {
@@ -978,9 +971,5 @@ app.all('/ussd', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  console.log(`API_BASE: ${API_BASE}`);
-  console.log('DB host:', process.env.DB_HOST, 'ssl:', (process.env.NODE_ENV === 'production' || process.env.DB_SSL === 'true'));
-}).on('error', (err) => {
-  console.error('Server failed to start:', err);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
